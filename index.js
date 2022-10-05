@@ -18,12 +18,13 @@ const employee = new Employee();
 // app.use(express.json());
 
 
-class Prompt{
+// class Prompt{
 
     
-runPrompt ()  {
+const runPrompt = () =>{
 
 const selectOptions = ['view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update an employee role', 'quit']
+const carCheck = [];
 
 inquirer
     .prompt([
@@ -41,7 +42,6 @@ inquirer
             case selectOptions[0]:
                 // use department class
                 department.getDepartment();
-
                 break;
 
             case selectOptions[1]:
@@ -71,7 +71,8 @@ inquirer
 
                 break;
             case selectOptions[6]:
-                employee.updateEmployeeRole();
+                employee.updateEmployeeRole()
+
 
                 break;
             case selectOptions[7]:
@@ -80,21 +81,24 @@ inquirer
                 process.exit();
         }
 
+
     })
-    // .then(()=>{
-    //     runPrompt();
-    // })
     
 
+// }
+
+// promptHandle(){
+//     return this.runPrompt();
+// }
 
 }
-}
 
 
-// runPrompt();
 
-const prompt = new Prompt();
+// const prompt = new Prompt();
 
-prompt.runPrompt();
+runPrompt();
 
-module.exports = prompt.runPrompt();
+
+// export for functions
+exports.runPrompt = runPrompt;
